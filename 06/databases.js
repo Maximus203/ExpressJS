@@ -70,3 +70,10 @@ function deleteCompte(numcompte) {
             }
         });
 }
+
+module.exports = {
+    listCompte,
+    createCompte,
+    updateCompte,
+    deleteCompte
+}
