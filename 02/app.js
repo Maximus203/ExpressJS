@@ -92,6 +92,13 @@ app.get("/", async (requete, reponse) => {
     reponse.send(page);
 });
 
+
+// Implementer la route pour afficher le formulaire de creation d'un compte: GET
+// Implementer la route pour afficher le formulaire de modification d'un compte: GET
+// Implementer la route pour sauvegarder un compte: POST
+// Implementer la route pour mettre a jour un compte: POST
+// Implementer la route pour supprimer un compte: (Rechercher la methode pour modifier et commenter le pourquoi de l'utilisation)
+
 // Démarrage du serveur Express
 app.listen(port, () => {
     console.log("Le serveur tourne sur l'adresse: http://localhost:" + port + "/");
