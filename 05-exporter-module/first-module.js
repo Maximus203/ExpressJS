@@ -1,7 +1,7 @@
 const car = "Mercedes";
 
 function afficherVoiture() {
-    console.log(car);
+    console.log("Cette voiture est une " + car);
 }
 
 module.exports = afficherVoiture;
