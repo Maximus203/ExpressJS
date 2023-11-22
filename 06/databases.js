@@ -71,6 +71,7 @@ function deleteCompte(numcompte) {
         });
 }
 
+// Exportation des fonctions pour les rendre accessibles depuis d'autres fichiers
 module.exports = {
     listCompte,
     createCompte,
