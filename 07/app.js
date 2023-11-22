@@ -2,8 +2,7 @@
 // Creation de script de lancement du serveur npm run start-app && npm run start-all
 // Utilisation de morgan, middleware de journalisation pour express qui enregistre les requetes HTTP dans nos logs
 
-// Utilisation de chalk pour colorier les logs
-
+// Utilisation de chalk pour colorier les logs: Verision installer chalk@4.1.2. La version 5(derniere version a date) cause des problemes !
 
 // Importation des modules nécessaires
 const express = require('express');
