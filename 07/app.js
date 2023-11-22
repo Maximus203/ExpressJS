@@ -1,6 +1,14 @@
+// Utilisation de nodemon comme dependance de developpement pour relancer automatiquement le serveur au changement du code.
+// Creation de script de lancement du serveur npm run start-app && npm run start-all
+// Utilisation de morgan, middleware de journalisation pour express qui enregistre les requetes HTTP dans nos logs
+
+// Utilisation de chalk pour colorier les logs
+
+
 // Importation des modules nécessaires
 const express = require('express');
-
+const morgan = require('morgan');
+const chalk = require('chalk');
 // Initialisation d'Express
 const app = express();
 const port = 3030;
@@ -20,9 +28,14 @@ app.use(express.json());
 // Middleware pour analyser les données envoyées depuis un formulaire: application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+// Middleware de journalisation avec Morgan
+app.use(
+    //morgan('tiny') // Valeur possible: 'combined' ou 'common' ou 'dev' ou 'short' ou 'tiny'
+    morgan('dev')
+);
+
 
 // Définition des routes
-
 // Définition de la route principale ("/")
 app.get("/", listerCompte);
 // Définition de la route "/formulaire" pour afficher un formulaire de création de compte
@@ -39,5 +52,5 @@ app.post("/supprimer/:numcompte", supprimerCompte);
 
 // Démarrage du serveur Express
 app.listen(port, () => {
-    console.log("Le serveur tourne sur l'adresse: http://localhost:" + port + "/");
+    console.log(chalk.green("Le serveur tourne sur l'adresse: ") + chalk.blue(`http://localhost:${port}/`));
 });
