@@ -1,7 +1,8 @@
 01/node_modules
 02/node_modules
-03/node_modules
-04/node_modules
-06/node_modules
-07/node_modules
-08/node_modules
+03-debut-service-web/node_modules
+04-service-web-simple/node_modules
+06-separation-en-modules/node_modules
+07-dependances-de-developpement/node_modules
+08-integration-du-front-end/node_modules
+09-middlewares/node_modules
