@@ -15,11 +15,9 @@ function listCompte() {
         connexion.query("SELECT * FROM compte",
             (erreurs, resultats, champs) => {
                 if (erreurs) {
-                    console.log("Nous avons des erreurs !");
                     reject(erreurs);
                 }
                 else {
-                    console.log("Donnees recuperees !");
                     resolve(resultats);
                 }
             });
@@ -28,47 +26,54 @@ function listCompte() {
 
 // Fonction pour créer un compte dans la base de données
 function createCompte(numcompte, prenom, nom, solde) {
-    // Requête SQL pour l'insertion d'un nouvel enregistrement dans la table 'compte'
-    connexion.query("INSERT INTO compte(numcompte, prenom, nom, solde) VALUES(?,?,?,?)",
-        [numcompte, prenom, nom, solde],
-        (erreurs, resultats, champs) => {
-            if (erreurs) {
-                console.log("Une erreur s'est produite: " + erreurs);
-            }
-            else {
-                console.log("Insertion reussie !");
-            }
-        });
+    return new Promise((resolve, reject) => {
+        // Requête SQL pour l'insertion d'un nouvel enregistrement dans la table 'compte'
+        connexion.query("INSERT INTO compte(numcompte, prenom, nom, solde) VALUES(?,?,?,?)",
+            [numcompte, prenom, nom, solde],
+            (erreurs, resultats, champs) => {
+                if (erreurs) {
+                    reject(erreurs);
+                }
+                else {
+                    resolve(resultats);
+                }
+            });
+    });
+
 }
 
 // Fonction pour modifier le solde d'un compte dans la base de données
 function updateCompte(numcompte, nouveauSolde) {
-    // Requête SQL pour mettre à jour le solde d'un enregistrement dans la table 'compte'
-    connexion.query("UPDATE compte SET solde = ? WHERE numcompte = ?",
-        [nouveauSolde, numcompte],
-        (erreurs, resultats, champs) => {
-            if (erreurs) {
-                console.log("Une erreur s'est produite: " + erreurs);
-            }
-            else {
-                console.log("Modification reussie !");
-            }
-        });
+    return new Promise((resolve, reject) => {
+        // Requête SQL pour mettre à jour le solde d'un enregistrement dans la table 'compte'
+        connexion.query("UPDATE compte SET solde = ? WHERE numcompte = ?",
+            [nouveauSolde, numcompte],
+            (erreurs, resultats, champs) => {
+                if (erreurs) {
+                    reject(erreurs);
+                }
+                else {
+                    resolve(resultats);
+                }
+            });
+    });
 }
 
 // Fonction pour supprimer un compte de la base de données
 function deleteCompte(numcompte) {
-    // Requête SQL pour supprimer un enregistrement de la table 'compte'
-    connexion.query("DELETE FROM compte WHERE numcompte = ?",
-        [numcompte],
-        (erreurs, resultats, champs) => {
-            if (erreurs) {
-                console.log("Une erreur s'est produite: " + erreurs);
-            }
-            else {
-                console.log("Suppression reussie !");
-            }
-        });
+    return new Promise((resolve, reject) => {
+        // Requête SQL pour supprimer un enregistrement de la table 'compte'
+        connexion.query("DELETE FROM compte WHERE numcompte = ?",
+            [numcompte],
+            (erreurs, resultats, champs) => {
+                if (erreurs) {
+                    reject(erreurs);
+                }
+                else {
+                    resolve(resultats);
+                }
+            });
+    });
 }
 
 // Exportation des fonctions pour les rendre accessibles depuis d'autres fichiers

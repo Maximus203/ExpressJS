@@ -4,6 +4,8 @@
 
 // Utilisation de chalk pour colorier les logs: Verision installer chalk@4.1.2. La version 5(derniere version a date) cause des problemes !
 
+// Refactorisation de databases.js en enlevant les logs(console.log) et en transformant les autres fonctions pour qu'elle renvoie des promesses.
+
 // Importation des modules nécessaires
 const express = require('express');
 const morgan = require('morgan');
@@ -51,5 +53,5 @@ app.post("/supprimer/:numcompte", supprimerCompte);
 
 // Démarrage du serveur Express
 app.listen(port, () => {
-    console.log(chalk.green("Le serveur tourne sur l'adresse: ") + chalk.blue(`http://localhost:${port}/`));
+    console.log(chalk.green("Le serveur tourne sur l'adresse: ") + chalk.blue.bold(`http://localhost:`) + chalk.bgRed.bold(`${port}`));
 });
