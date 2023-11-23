@@ -58,8 +58,61 @@
                         </td>
                         <td><a class="btn btn-outline-warning"
                                 href='/formulaire-modification/<%= donnees[i].numcompte %>'>Modifier</a>
-                            <form class="d-inline" method='post' action='/supprimer/<%= donnees[i].numcompte %>'>
-                                <input class="btn btn-outline-danger" type='submit' value='Supprimer'>
+                            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                data-bs-target="#compte<%= donnees[i].numcompte %>">
+                                Supprimer
+                            </button>
+
+                            <form method='post' action='/supprimer/<%= donnees[i].numcompte %>'>
+                                <div class="modal fade" id="compte<%= donnees[i].numcompte %>" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Suppression du
+                                                    compte
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Etes-vous sur de vouloir supprimer ce compte ?
+                                                <table class="table mt-3">
+                                                    <tr>
+                                                        <th>Numero compte</th>
+                                                        <td>
+                                                            <%= donnees[i].numcompte %>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Prenom</th>
+                                                        <td>
+                                                            <%= donnees[i].prenom %>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Nom</th>
+                                                        <td>
+                                                            <%= donnees[i].nom %>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Solde</th>
+                                                        <td>
+                                                            <%= donnees[i].solde %>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Non</button>
+                                                <input class="btn btn-danger" type='submit' value='Oui'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </td>
                     </tr>
