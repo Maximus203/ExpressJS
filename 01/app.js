@@ -76,7 +76,12 @@ async function main() {
     try {
         // Appel de la fonction pour lister les comptes
         let donnees = await listCompte();
-
+        createCompte('1001', 'Cherif', 'Diouf', '2000');
+        createCompte('1002', 'Fallou', 'Ba', '250000');
+        createCompte('1003', 'Issa', 'Fall', '45000');
+        createCompte('1004', 'Rawane', 'Diop', '62000');
+        createCompte('1005', 'Bamba', 'Diouf', '78000');
+        createCompte('1006', 'Talla', 'Diakhate', '98000');
         // Parcours des données récupérées et affichage
         donnees.forEach(donnee => {
             console.log("___________________________");
